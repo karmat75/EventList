@@ -3,15 +3,15 @@ const DAY_ROLLOVER_HOUR = 4;
 
 const statusLabels = {
   geplant: "Geplant",
-  aktiv: "Aktiv",
+  veröffentlicht: "Veröffentlicht",
   abgesagt: "Abgesagt",
   verschoben: "Verschoben"
 };
 
-const visibleStatuses = new Set(["aktiv", "abgesagt"]);
+const visibleStatuses = new Set(["veröffentlicht", "abgesagt"]);
 
 const locationLabels = {
-  Gallerie: "Gallerie",
+  Galerie: "Galerie",
   Bar: "Bar",
   Biergarten: "Biergarten"
 };
@@ -98,7 +98,7 @@ function normalizeEvent(event) {
 
   return {
     ...event,
-    status: (event.status || "geplant").toLowerCase(),
+    status: normalizeStatus(event.status),
     location: event.location || "Bar",
     admission: normalizeAdmission(event.admission),
     start
@@ -112,11 +112,15 @@ function normalizeAdmission(value) {
     return "frei";
   }
 
-  if (["eintritt", "ja", "yes", "kostenpflichtig", "paid", "ticket"].includes(normalized)) {
-    return "eintritt";
+  if (["kostenpflichtig", "ja", "yes", "paid", "ticket"].includes(normalized)) {
+    return "kostenpflichtig";
   }
 
   return "unbekannt";
+}
+
+function normalizeStatus(value) {
+  return String(value || "geplant").trim().toLowerCase();
 }
 
 function isCurrentOrFutureEvent(event) {
@@ -143,8 +147,8 @@ function renderEvents(events) {
     emptyState.className = "empty-state";
     emptyState.innerHTML = `
       <p class="eyebrow">Gerade ruhig</p>
-      <h3>Keine angekuendigten Events</h3>
-      <p>Schau bald wieder rein. Manchmal bleibt die Marie einfach ein Ort fuer spontane Abende.</p>
+      <h3>Keine angekündigten Events</h3>
+      <p>Schau bald wieder rein. Manchmal bleibt die Marie einfach ein Ort für spontane Abende.</p>
     `;
     eventList.append(emptyState);
     return;
@@ -156,7 +160,7 @@ function renderEvents(events) {
     const item = document.createElement("article");
     const isCancelled = event.status.toLowerCase() === "abgesagt";
     const admissionIcon =
-      event.admission === "eintritt"
+      event.admission === "kostenpflichtig"
         ? `<span class="admission-icon" tabindex="0" role="img" aria-label="Eintritt wird verlangt" title="Eintritt wird verlangt" data-tooltip="Eintritt wird verlangt"><span aria-hidden="true">€</span></span>`
         : "";
     item.className = `event-card${isCancelled ? " is-cancelled" : ""}`;

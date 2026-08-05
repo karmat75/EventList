@@ -1,16 +1,16 @@
 # EventList
 
-Statische Eventliste fuer die Marie 23 in der Cottbuser Marienstrasse 23.
+Statische Eventliste für die Marie 23 in der Cottbuser Marienstraße 23.
 
-Das Projekt ist bewusst einfach gehalten und soll spaeter ohne Build-Schritt auf GitHub Pages, Netlify Free oder einem vergleichbaren statischen Hoster laufen.
+Das Projekt ist bewusst einfach gehalten und soll später ohne Build-Schritt auf GitHub Pages, Netlify Free oder einem vergleichbaren statischen Hoster laufen.
 
 ## Ziel
 
 - Eine ansehnliche, responsive Hauptseite mit kommenden Events.
-- Eine kombinierte Seite fuer Impressum und Datenschutz.
-- Pflege der Events ueber eine CSV-Datei im Projekt.
-- Anzeige nur fuer Events, die heute oder in der Zukunft liegen.
-- Der Tageswechsel fuer die Eventanzeige liegt bei 04:00 Uhr morgens. Bis 03:59 Uhr zaehlt also noch der Vortag als "heute".
+- Eine kombinierte Seite für Impressum und Datenschutz.
+- Pflege der Events über eine CSV-Datei im Projekt.
+- Anzeige nur für Events, die heute oder in der Zukunft liegen.
+- Der Tageswechsel für die Eventanzeige liegt bei 04:00 Uhr morgens. Bis 03:59 Uhr zählt also noch der Vortag als "heute".
 
 ## Projektstruktur
 
@@ -35,7 +35,7 @@ Die Events werden in `data/events.csv` gepflegt.
 
 ```csv
 date,time,title,description,status,location,admission
-2026-08-14,20:00,Plattenabend,Musik und Getraenke im Hof,aktiv,Biergarten,frei
+2026-08-14,20:00,Plattenabend,Musik und Getränke im Hof,veröffentlicht,Biergarten,frei
 ```
 
 ### Felder
@@ -44,17 +44,15 @@ date,time,title,description,status,location,admission
 - `time`: Uhrzeit im Format `HH:MM`
 - `title`: Titel des Events
 - `description`: kurze Beschreibung
-- `status`: z. B. `geplant`, `aktiv`, `abgesagt`, `verschoben`; angezeigt werden nur `aktiv` und `abgesagt`
-- `location`: `Gallerie`, `Bar` oder `Biergarten`
-- `admission`: `frei`, `eintritt` oder leer/unbekannt
+- `status`: z. B. `geplant`, `veröffentlicht`, `abgesagt`, `verschoben`; angezeigt werden nur `veröffentlicht` und `abgesagt`
+- `location`: `Galerie`, `Bar` oder `Biergarten`
+- `admission`: `frei`, `kostenpflichtig` oder leer/unbekannt
 
 Der Status wird auf der Webseite nur sichtbar ausgegeben, wenn ein Event `abgesagt` ist. Bei kostenpflichtigen Events wird ein kleines Symbol vor dem Eventtitel angezeigt.
 
-Hinweis: Die Schreibweise `Gallerie` ist aktuell so angelegt, wie sie in der Projektidee genannt wurde. Falls die offizielle Schreibweise `Galerie` gewuenscht ist, sollte sie einheitlich in CSV, Code und UI angepasst werden.
-
 ## Lokal ansehen
 
-Da der Browser die CSV per `fetch()` laedt, sollte die Seite ueber einen kleinen lokalen Webserver geoeffnet werden:
+Da der Browser die CSV per `fetch()` lädt, sollte die Seite über einen kleinen lokalen Webserver geöffnet werden:
 
 ```bash
 python3 -m http.server 8000
@@ -66,15 +64,15 @@ Danach im Browser:
 http://localhost:8000/preview.html
 ```
 
-Die Datei `index.html` ist fuer die erste Praesentation absichtlich leer. Dadurch zeigt die normale GitHub-Pages-Root-URL keine unfertige oder vermeintlich offizielle Eventseite.
+Die Datei `index.html` ist für die erste Präsentation absichtlich leer. Dadurch zeigt die normale GitHub-Pages-Root-URL keine unfertige oder vermeintlich offizielle Eventseite.
 
 ## Deployment
 
-Fuer GitHub Pages ist kein Build-Schritt notwendig. Die benoetigten Einstellungen sind in `GITHUB_PAGES.md` beschrieben.
+Für GitHub Pages ist kein Build-Schritt notwendig. Die benötigten Einstellungen sind in `GITHUB_PAGES.md` beschrieben.
 
-## Naechste Schritte
+## Nächste Schritte
 
-- Echtes Impressum und echte Datenschutzerklaerung eintragen.
+- Echtes Impressum und echte Datenschutzerklärung eintragen.
 - Finale Eventdaten in `data/events.csv` pflegen.
 - Bei Bedarf eigenes Bildmaterial der Location einbauen.
-- Deployment ueber GitHub Pages oder Netlify einrichten.
+- Deployment über GitHub Pages oder Netlify einrichten.
