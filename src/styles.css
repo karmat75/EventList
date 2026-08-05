@@ -32,7 +32,7 @@ a {
 }
 
 .site-header {
-  min-height: 74vh;
+  /* min-height: 74vh; */
   background:
     linear-gradient(145deg, rgba(21, 20, 20, 0.1), rgba(21, 20, 20, 0.84)),
     radial-gradient(circle at 15% 20%, rgba(198, 145, 62, 0.26), transparent 28rem),
@@ -97,7 +97,7 @@ a {
 
 .hero {
   width: min(1120px, calc(100% - 32px));
-  min-height: calc(74vh - 89px);
+  /* min-height: calc(74vh - 89px); */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -105,7 +105,7 @@ a {
 
 .hero-content {
   max-width: 760px;
-  padding: 54px 0 84px;
+  /* padding: 54px 0 84px; */
 }
 
 .eyebrow {
