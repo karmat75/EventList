@@ -65,6 +65,10 @@ Danach im Browser:
 http://localhost:8000
 ```
 
+## Deployment
+
+Fuer GitHub Pages ist kein Build-Schritt notwendig. Die benoetigten Einstellungen sind in `GITHUB_PAGES.md` beschrieben.
+
 ## Naechste Schritte
 
 - Echtes Impressum und echte Datenschutzerklaerung eintragen.
