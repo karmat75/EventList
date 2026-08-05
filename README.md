@@ -17,6 +17,7 @@ Das Projekt ist bewusst einfach gehalten und soll spaeter ohne Build-Schritt auf
 ```text
 .
 ├── index.html
+├── preview.html
 ├── impressum-datenschutz.html
 ├── data/
 │   └── events.csv
@@ -62,8 +63,10 @@ python3 -m http.server 8000
 Danach im Browser:
 
 ```text
-http://localhost:8000
+http://localhost:8000/preview.html
 ```
+
+Die Datei `index.html` ist fuer die erste Praesentation absichtlich leer. Dadurch zeigt die normale GitHub-Pages-Root-URL keine unfertige oder vermeintlich offizielle Eventseite.
 
 ## Deployment
 

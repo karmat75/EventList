@@ -6,7 +6,7 @@ Diese Webseite ist eine statische HTML/CSS/JavaScript-Seite und benoetigt keinen
 
 - Das Repository ist auf GitHub vorhanden.
 - Der Branch `main` enthaelt die Dateien aus diesem Projekt.
-- Die Datei `index.html` liegt im Projekt-Root.
+- Die Datei `index.html` liegt im Projekt-Root. Sie ist aktuell absichtlich leer, damit die Root-URL keine unfertige Vorschau zeigt.
 
 ## Einstellung auf GitHub
 
@@ -28,10 +28,17 @@ Bei einem Repository unter `https://github.com/karmat75/EventList` lautet die Gi
 https://karmat75.github.io/EventList/
 ```
 
+Die eigentliche Vorschau liegt waehrend der ersten Praesentation unter:
+
+```text
+https://karmat75.github.io/EventList/preview.html
+```
+
 ## Hinweise
 
 - Nach einem Push auf `main` wird die Seite automatisch neu veroeffentlicht.
 - Die Events werden aus `data/events.csv` geladen. Aenderungen an dieser Datei werden nach dem Push sichtbar.
+- Die Root-Seite `index.html` ist absichtlich leer. Das ist kein Zugriffsschutz, verhindert aber, dass zufaellige Besucher direkt eine unfertige Eventliste sehen.
 - Die Datei `.nojekyll` sorgt dafuer, dass GitHub Pages die Dateien direkt ausliefert und keine Jekyll-Verarbeitung anwendet.
 - Falls spaeter eine eigene Domain genutzt wird, kann sie ebenfalls unter `Settings` > `Pages` eingetragen werden.
 
